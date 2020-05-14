@@ -1,0 +1,49 @@
+ .dmn{
+     height: 150px;
+     line-height: 150px;
+     color: white;
+}
+ .dmn1{
+     background-image: url('../img/dmn/dmn1.jpg');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+
+ }
+ .dmn2{
+     background-image: url('../img/dmn/dmn2.jpg');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+ .dmn3{
+     background-image: url('../img/dmn/dmn3.jpg');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+ .dmn4{
+     background-image: url('../img/dmn/dmn4.jpg');
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+ }
+ .dmn5{
+     background-image: url('../img/dmn/dmn5.jpg');
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+ }
+ .dmn6{
+     background-image: url('../img/dmn/dmn6.jpg');
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+ }
+
+ .fm{
+     height: 100px;
+     line-height: 100px;
+     color: black;
+     background-color: #28a745;
+ }
