@@ -13,21 +13,25 @@ $(document).ready(function () {
                            ${info.id}
                         </th>
                                                 <td>
-                           ${info.date} 
+                           ${info.date}
                         </td>
                         <td>
-                           ${info.titre} 
+                           ${info.titre}
                         </td>
 
                         <td>
-                           ${info.contenu.slice(0,100)} 
+                           ${info.contenu.slice(0, 100)}
                          </td>
-              
+
                          <td>
                          <div>
-                         
-                         <button class="btn btn-primary"> <a  href="edit.php?post=${info.id}"><i class=" text-white fa fa-edit"></i></a> </button>
-    
+
+                          <a  href="edit.php?post=${info.id}">
+                             <button class="btn btn-primary">
+                                <i class=" text-white fa fa-edit"></i>
+                              </button>
+                          </a>
+
 </div>
                           </td>                        
                         </tr>

@@ -1,23 +1,23 @@
 <?php
 require_once 'php_action/core.php';
 
+if (isset($_POST['update'])) {
 
-if (isset($_POST['update'])){
-    $id =$_POST["postId"];
+    $id = $_POST["postId"];
 //    echo $id;
-    $titre =$_POST["titre"];
-    $contenu =$_POST["contenu"];
-    $sql = "update posts set titre = '$titre' , contenu = '$contenu' where id = $id";
+    $titre = $_POST["titre"];
+    $contenu = str_replace('"', "'", $_POST["contenu"]);
+    $sql = 'update posts set titre = ' . '"'. $titre .'"'. ', contenu = '.'"'. $contenu. '"' .' where id ='. $id;
 //    die($sql);
     $result = $connect->query($sql);
     if ($result)
         header('location: http://localhost/kevaat/admin/pubs.html');
     else     echo "nooo";
-}else{
+} else {
 
-    $id=$_GET["post"];
-    $titre ="";
-    $date ="";
+    $id = $_GET["post"];
+    $titre = "";
+    $date = "";
     $contenu = "";
     $sql = "select * from posts where id = $id";
     $result = $connect->query($sql);
@@ -25,10 +25,10 @@ if (isset($_POST['update'])){
 
     $data = array();
 
-    while ($row = mysqli_fetch_row($result)){
-        $date= $row[1];
-        $titre= $row[2];
-        $contenu= $row[3];
+    while ($row = mysqli_fetch_row($result)) {
+        $date = $row[1];
+        $titre = $row[2];
+        $contenu = $row[3];
     }
 
 }
@@ -38,8 +38,6 @@ if (isset($_POST['update'])){
 
 $connect->close();
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -62,7 +60,8 @@ $connect->close();
     <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/img/favicon.png" rel="icon">
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css"/>
 
     <style>
         #row_style {
@@ -73,11 +72,11 @@ $connect->close();
             display: block;
             margin: auto;
         }
-        a{
+
+        a {
             text-decoration: none;
         }
     </style>
-
 
 
 </head>
@@ -105,12 +104,11 @@ $connect->close();
         <li class="nav-item ">
             <a class="nav-link" href="index.php">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Publier</span></a>
         </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
-
 
 
         <!-- Nav Item - publication -->
@@ -122,11 +120,11 @@ $connect->close();
         <hr class="sidebar-divider">
 
         <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="agenda.php">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Agenda</span></a>
-        </li>
+        <!--        <li class="nav-item">-->
+        <!--            <a class="nav-link" href="agenda.php">-->
+        <!--                <i class="fas fa-fw fa-table"></i>-->
+        <!--                <span>Agenda</span></a>-->
+        <!--        </li>-->
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -171,30 +169,24 @@ $connect->close();
             <div class="container-fluid">
 
 
-
-
                 <h4 class="text-center ">Modification des publications</h4>
                 <div class="row justify-content-center" id="row_style">
                     <form action="edit.php" method="post">
 
-                        <input type="text" name="postId" value="<?php echo $id?>">
+                        <input type="hidden" name="postId" value="<?php echo $id ?>">
                         <div class="form-group">
-                            <input type="text" class="form-control" value="<?php echo $titre?>" name="titre">
+                            <input type="text" class="form-control" value="<?php echo $titre ?>" name="titre">
                         </div>
-                        <textarea id="editor" cols="30" rows="10" name="contenu"> <?php echo $contenu?></textarea>
+                        <textarea id="editor" cols="30" rows="10" name="contenu"> <?php echo $contenu ?></textarea>
                         <br>
                         <!--            <div class="form-group">-->
                         <!--                <input type="text" class="form-control" placeholder="Tags">-->
                         <!--            </div>-->
                         <div class="form-group">
-                            <input class="btn btn-primary" type="submit" id="submit" name="update">Enregistrer</input>
+                            <button class="btn btn-primary" type="submit" id="submit" name="update">Enregistrer</button>
                         </div>
-
                     </form>
                 </div>
-
-
-
 
 
             </div>

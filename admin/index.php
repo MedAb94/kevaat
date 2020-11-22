@@ -104,11 +104,11 @@ if(isset($_POST['publier'])){
         <hr class="sidebar-divider">
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="agenda.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Agenda</span></a>
-      </li>
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="agenda.php">-->
+<!--          <i class="fas fa-fw fa-table"></i>-->
+<!--          <span>Agenda</span></a>-->
+<!--      </li>-->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
